@@ -7,7 +7,7 @@ export default function Gallery() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const openModal = (src) => {
+  const openModal = (src:any) => {
     setSelectedImage(src);
     setIsModalOpen(true);
   };
@@ -71,6 +71,7 @@ export default function Gallery() {
             onClick={(e) => e.stopPropagation()}
           >
             <img
+            //@ts-ignore
               src={selectedImage}
               alt="Enlarged view"
               className="w-full h-auto transform transition-all duration-500 ease-in-out scale-110"
