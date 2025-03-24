@@ -72,10 +72,10 @@ export default function Gallery() {
           >
             <img
             //@ts-ignore
-              src={selectedImage}
-              alt="Enlarged view"
-              className="w-full h-auto transform transition-all duration-500 ease-in-out scale-110"
-            />
+            src={selectedImage}
+            alt="Увеличенное изображение"
+            className="max-h-[90vh] w-auto max-w-full object-contain transform transition-all duration-500 ease-in-out"
+          />
             <button
               onClick={closeModal}
               className="absolute top-2 right-2 bg-white text-black px-2 text-xl cursor-pointer rounded-full hover:bg-gray-300"
