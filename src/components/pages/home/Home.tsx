@@ -15,13 +15,11 @@ export default function Home() {
         style={{ backgroundImage: "url('/pokras-main.jpg')" }}
       >
         <div className="relative z-10 px-4">
-          <h1 className="text-4xl md:text-6xl font-bold">
-            POKRASSERVIS-POLYMER
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold">PS-POLYMER</h1>
           <p className="mt-4 text-lg md:text-xl max-w-[600px] mx-auto">
             Профессиональное порошковое окрашивание с применением передовых
-            технологий. Высокое качество, долговечность и эстетика в каждом
-            покрытии.
+            технологий. Высокое качество, долговечность и эстетика в каждой
+            детали.
           </p>
         </div>
       </div>

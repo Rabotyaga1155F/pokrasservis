@@ -58,4 +58,6 @@ export const services: IService[] = [
     image: service7,
     category: "Пескоструйная обработка",
   },
+  
+  
 ];

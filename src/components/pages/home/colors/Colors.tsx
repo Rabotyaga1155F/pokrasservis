@@ -1,11 +1,10 @@
-import colors from "@/data/colors/colors";
+import { popularColors } from "@/data/colors/colors";
 import Link from "next/link";
 import GreenButton from "@/components/ui/buttons/GreenButton";
 
 export default function Colors() {
   return (
     <div className=" py-10 px-4">
-      <h3 className="text-center text-xl">Популярные</h3>
       <h1 className="text-center text-4xl font-semibold mt-3">
         Цвета покраски
       </h1>
@@ -13,7 +12,7 @@ export default function Colors() {
 
       <div className="max-w-[1200px] mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {colors.slice(0, 3).map((color, index) => (
+          {popularColors.slice(0, 3).map((color, index) => (
             <div key={index} className="text-center">
               <div
                 className="w-full h-32 rounded-lg mx-auto transition-transform duration-300 hover:scale-105"

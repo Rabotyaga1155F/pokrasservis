@@ -20,5 +20,6 @@ export const jobs = [
   "/jobs/XXXL (15).webp",
   "/jobs/XXXL (16).webp",
   "/jobs/XXXL (17).webp",
-  "/jobs/XXXL (19).webp"
+  "/jobs/XXXL (19).webp",
+  "/jobs/21job.webp"
 ];
