@@ -5,12 +5,12 @@ export default function Footer() {
     <footer className="bg-green-800 py-8">
       <div className="max-w-[1200px] w-full mx-auto flex flex-col md:flex-row justify-between items-center px-4">
         <p className="text-white text-sm text-center md:text-left max-w-[30%] md:max-w-none mb-2 md:mb-0">
-          © 2025, Сэпселев Тимофей |{" "}
+          © 2025, Порядин Андрей |{" "}
           <a
             className="underline"
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/iamdroro"
+            href="https://github.com/Rabotyaga1155F"
           >
             Разработка мобильных приложений и сайтов
           </a>
