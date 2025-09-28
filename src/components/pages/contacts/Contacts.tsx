@@ -41,6 +41,16 @@ export default function Contacts() {
               <a href="tel:+79221499090" className="underline text-green-800">
                 +7 (922) 149-90-90
               </a>
+              <p>
+                <a>
+                  <a
+                    href="mailto:pokrasservispolimer@gmail.com"
+                    className="underline text-green-800"
+                  >
+                    pokrasservispolimer@gmail.com
+                  </a>
+                </a>
+              </p>
             </div>
           </div>
 
@@ -58,9 +68,19 @@ export default function Contacts() {
                 Свердловская область, г.Екатеринбург, ул.Начдива Онуфриева 55
                 бокс 747
               </p>
-              <a href="tel:+79220291663" className="underline text-green-800">
-                +7 (922) 029-16-63
+              <a href="tel:+79221439090" className="underline text-green-800">
+                +7 (922) 143-90-90
               </a>
+              <p>
+                <a>
+                  <a
+                    href="mailto:pokrasservispolimer@gmail.com"
+                    className="underline text-green-800"
+                  >
+                    pokrasservispolimer@gmail.com
+                  </a>
+                </a>
+              </p>
             </div>
           </div>
         </div>

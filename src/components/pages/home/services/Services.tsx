@@ -2,6 +2,7 @@ import { services } from "@/data/services/services";
 import ObjectCard from "@/components/elements/object-card/ObjectCard";
 import Link from "next/link";
 import GreenButton from "@/components/ui/buttons/GreenButton";
+import PriceForm from "@/components/elements/price-form/PriceForm";
 
 export default function Services() {
   return (
@@ -31,6 +32,7 @@ export default function Services() {
           </GreenButton>
         </Link>
       </div>
+      <PriceForm />
     </div>
   );
 }

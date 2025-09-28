@@ -2,6 +2,7 @@ import React from "react";
 import ObjectCard from "@/components/elements/object-card/ObjectCard";
 import { IService, services } from "@/data/services/services";
 import Link from "next/link";
+import PriceForm from "@/components/elements/price-form/PriceForm";
 
 const groupServicesByCategory = (services: IService[]) => {
   return services.reduce(
@@ -22,6 +23,7 @@ export default function Services() {
 
   return (
     <div className="min-h-screen">
+      {/* Заголовок */}
       <div
         className="h-52 relative flex flex-col justify-center text-white text-left bg-cover bg-center before:absolute before:inset-0 before:bg-black/50"
         style={{ backgroundImage: "url('/bg-head.jpg')" }}
@@ -41,6 +43,7 @@ export default function Services() {
         </div>
       </div>
 
+      {/* Услуги */}
       <div className="p-10">
         <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-10">
           <h2 className="text-green-800 font-semibold text-3xl text-center pt-10 pb-5">
@@ -69,6 +72,8 @@ export default function Services() {
           </div>
         ))}
       </div>
+
+      <PriceForm />
     </div>
   );
 }

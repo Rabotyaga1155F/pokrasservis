@@ -32,7 +32,7 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-5 pl-5">
-          <Link target="_blank" href="https://telegram.org/">
+          <Link target="_blank" href="https://t.me/Ps_polimer">
             <Image
               width={50}
               height={50}
@@ -40,7 +40,10 @@ export default function Header() {
               alt="telegram-icon"
             />
           </Link>
-          <Link target="_blank" href="https://api.whatsapp.com/">
+          <Link
+            target="_blank"
+            href="https://api.whatsapp.com/send/?phone=79221499090&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5.%0A%0A&type=phone_number&app_absent=0"
+          >
             <Image
               width={50}
               height={50}
