@@ -8,7 +8,8 @@ import { sendMessageToEmail } from "@/utils/send-message/serverActions";
 type FormValues = {
   works: string;
   name: string;
-  phone: string;
+  phone?: string;
+  email?: string;
   consent: boolean;
 };
 
@@ -28,23 +29,26 @@ export default function PriceForm() {
   });
 
   const consentChecked = watch("consent");
+  const phoneValue = watch("phone");
+  const emailValue = watch("email");
 
   const onSubmit = async (data: FormValues) => {
     setIsLoading(true);
     try {
       await sendMessageToEmail({
         name: data.name,
-        phone: data.phone,
+        phone: data.phone || "",
+        email: data.email || "",
         works: data.works,
       });
 
       setSuccessMessage(true);
-      setShowSubmittedText(true); // показываем текст на кнопке
-      reset(); // сброс формы
+      setShowSubmittedText(true);
+      reset();
 
       setTimeout(() => {
         setSuccessMessage(false);
-        setShowSubmittedText(false); // возвращаем кнопку в исходное состояние
+        setShowSubmittedText(false);
       }, 5000);
     } catch (error) {
       console.log(error);
@@ -105,10 +109,19 @@ export default function PriceForm() {
             </label>
             <input
               {...register("phone", {
-                required: "Введите телефон",
-                pattern: {
-                  value: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/,
-                  message: "Введите корректный номер",
+                validate: (value) => {
+                  if (!value && !emailValue) {
+                    return "Укажите телефон или email";
+                  }
+                  if (
+                    value &&
+                    !/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(
+                      value,
+                    )
+                  ) {
+                    return "Введите корректный номер";
+                  }
+                  return true;
                 },
               })}
               type="tel"
@@ -118,6 +131,34 @@ export default function PriceForm() {
             {errors.phone && (
               <p className="text-red-500 text-sm mt-1">
                 {errors.phone.message}
+              </p>
+            )}
+          </div>
+
+          {/* Email */}
+          <div>
+            <label className="block text-gray-700 font-medium mb-2">
+              Email
+            </label>
+            <input
+              {...register("email", {
+                validate: (value) => {
+                  if (!value && !phoneValue) {
+                    return "Укажите телефон или email";
+                  }
+                  if (value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                    return "Введите корректный email";
+                  }
+                  return true;
+                },
+              })}
+              type="email"
+              placeholder="example@mail.ru"
+              className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-green-500"
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.email.message}
               </p>
             )}
           </div>

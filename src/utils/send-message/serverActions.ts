@@ -3,7 +3,8 @@ import { sendMail } from "@/utils/send-message/mail";
 
 export async function sendMessageToEmail(data: {
   name: string;
-  phone: string;
+  phone?: string;
+  email?: string;
   works: string;
 }) {
   try {
@@ -18,17 +19,30 @@ export async function sendMessageToEmail(data: {
             </td>
           </tr>
           <tr>
-            <td style="font-size: 16px; color: #333; padding-top: 5px; padding-bottom: 5px;">
+            <td style="font-size: 16px; color: #333;">
               <strong>Имя:</strong> ${data.name}
             </td>
           </tr>
+          ${
+            data.phone
+              ? `<tr>
+                  <td style="font-size: 16px; color: #333;">
+                    <strong>Телефон:</strong> <a href="tel:${data.phone}" style="color: #2F855A; text-decoration: none;">${data.phone}</a>
+                  </td>
+                </tr>`
+              : ""
+          }
+          ${
+            data.email
+              ? `<tr>
+                  <td style="font-size: 16px; color: #333;">
+                    <strong>Email:</strong> <a href="mailto:${data.email}" style="color: #2F855A; text-decoration: none;">${data.email}</a>
+                  </td>
+                </tr>`
+              : ""
+          }
           <tr>
-            <td style="font-size: 16px; color: #333; padding-top: 10px; padding-bottom: 10px;">
-              <strong>Телефон:</strong> <a href="tel:${data.phone}" style="color: #2F855A; text-decoration: none;">${data.phone}</a>
-            </td>
-          </tr>
-          <tr>
-            <td style="font-size: 16px; color: #333; padding-top: 5px; padding-bottom: 5px;">
+            <td style="font-size: 16px; color: #333;">
               <strong>Список работ:</strong> ${data.works}
             </td>
           </tr>
