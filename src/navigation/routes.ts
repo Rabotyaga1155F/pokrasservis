@@ -13,6 +13,10 @@ export const routes: IRoute[] = [
     href: "/services",
   },
   {
+    name:"Расчёт стоимости",
+    href:"/services#services-form"
+  },
+  {
     name: "Каталог цветов",
     href: "/colors",
   },

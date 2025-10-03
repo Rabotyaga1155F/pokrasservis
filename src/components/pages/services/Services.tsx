@@ -73,7 +73,8 @@ export default function Services() {
         ))}
       </div>
 
-      <PriceForm />
+      <div id="services-form"/>
+        <PriceForm />
     </div>
   );
 }
