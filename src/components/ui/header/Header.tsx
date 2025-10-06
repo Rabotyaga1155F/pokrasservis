@@ -17,9 +17,10 @@ export default function Header() {
           <Image
             width={200}
             height={100}
-            src={"/poliymer_logo.png"}
+            src={"/poliymer_logo.webp"}
             alt={"logo"}
           />
+
           <div className="hidden lg:block">
             <h3 className="my-2">
               Свердловская область, г.Берёзовский, ул.Кирова 61
@@ -28,6 +29,9 @@ export default function Header() {
               Свердловская область, г.Екатеринбург, ул.Начдива Онуфриева 55 бокс
               747
             </h3>
+            <p className="my-2 text-lg font-semibold text-green-800">
+              Порошковая покраска и пескоструйная обработка
+            </p>
           </div>
         </div>
 
