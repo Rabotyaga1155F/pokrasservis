@@ -12,64 +12,106 @@ export default function Header() {
 
   return (
     <header className="bg">
-      <div className="bg-gray-200 flex flex-row items-center justify-between px-5">
-        <div className="flex flex-row py-5 items-center gap-5">
+      {/* Верхняя часть */}
+      <div className="bg-gray-200 flex flex-col lg:flex-row items-center justify-between px-5">
+        {/* === Мобильная версия === */}
+        <div className="flex lg:hidden flex-row items-center justify-between w-full lg:py-5">
           <Image
-            width={200}
-            height={100}
+            width={150}
+            height={80}
             src={"/poliymer_logo.webp"}
             alt={"logo"}
           />
 
-          <div className="hidden lg:block">
-            <h3 className="my-2">
-              Свердловская область, г.Берёзовский, ул.Кирова 61
-            </h3>
-            <h3 className="my-2">
-              Свердловская область, г.Екатеринбург, ул.Начдива Онуфриева 55 бокс
-              747
-            </h3>
-            <p className="my-2 text-lg font-semibold text-green-800">
-              Порошковая покраска и пескоструйная обработка
-            </p>
+          <div className="flex items-center gap-3">
+            <Link target="_blank" href="https://t.me/Ps_polimer">
+              <Image
+                width={35}
+                height={35}
+                src="/telegram-icon.png"
+                alt="telegram-icon"
+              />
+            </Link>
+            <Link
+              target="_blank"
+              href="https://api.whatsapp.com/send/?phone=79221499090&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5.%0A%0A&type=phone_number&app_absent=0"
+            >
+              <Image
+                width={35}
+                height={35}
+                src="/whatsapp-icon.png"
+                alt="whatsapp-icon"
+              />
+            </Link>
+            <button className="p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              <Image
+                width={25}
+                height={25}
+                src="/burger-bar.svg"
+                alt="menu-icon"
+              />
+            </button>
           </div>
         </div>
 
-        <div className="flex items-center gap-5 pl-5">
-          <Link target="_blank" href="https://t.me/Ps_polimer">
+        {/* === Десктопная версия === */}
+        <div className="hidden lg:flex flex-row py-5 items-center gap-5 w-full justify-between">
+          <div className="flex flex-row items-center gap-5">
             <Image
-              width={50}
-              height={50}
-              src="/telegram-icon.png"
-              alt="telegram-icon"
+              width={200}
+              height={100}
+              src={"/poliymer_logo.webp"}
+              alt={"logo"}
             />
-          </Link>
-          <Link
-            target="_blank"
-            href="https://api.whatsapp.com/send/?phone=79221499090&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5.%0A%0A&type=phone_number&app_absent=0"
-          >
-            <Image
-              width={50}
-              height={50}
-              src="/whatsapp-icon.png"
-              alt="whatsapp-icon"
-            />
-          </Link>
 
-          <button
-            className="lg:hidden p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <Image
-              width={30}
-              height={30}
-              src="/burger-bar.svg"
-              alt="menu-icon"
-            />
-          </button>
+            <div>
+              <h3 className="my-2">
+                Свердловская область, г.Берёзовский, ул.Кирова 61
+              </h3>
+              <h3 className="my-2">
+                Свердловская область, г.Екатеринбург, ул.Начдива Онуфриева 55
+                бокс 747
+              </h3>
+
+              {/* текст только на больших устройствах */}
+              <p className="my-2 text-lg xl:text-xl font-semibold text-green-800">
+                Порошковая покраска и пескоструйная обработка
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-5">
+            <Link target="_blank" href="https://t.me/Ps_polimer">
+              <Image
+                width={50}
+                height={50}
+                src="/telegram-icon.png"
+                alt="telegram-icon"
+              />
+            </Link>
+            <Link
+              target="_blank"
+              href="https://api.whatsapp.com/send/?phone=79221499090&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5.%0A%0A&type=phone_number&app_absent=0"
+            >
+              <Image
+                width={50}
+                height={50}
+                src="/whatsapp-icon.png"
+                alt="whatsapp-icon"
+              />
+            </Link>
+          </div>
+        </div>
+
+        {/* === Текст под шапкой, только для телефонов === */}
+        <div className="lg:hidden w-full text-center bg-gray-200 pb-3">
+          <p className="text-green-800 font-semibold text-sm sm:text-base leading-tight">
+            Порошковая покраска и пескоструйная обработка
+          </p>
         </div>
       </div>
 
+      {/* Меню */}
       <div
         className={`bg-gray-600 lg:flex flex-row justify-around items-center px-10 transition-all duration-500 ease-in-out transform ${
           isMenuOpen
