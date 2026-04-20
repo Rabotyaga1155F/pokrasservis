@@ -87,8 +87,8 @@ export default function Contacts() {
 
         <iframe
           src="https://yandex.ru/map-widget/v1/?um=constructor%3A9d47da3dd1a215bd95d301d9cd5eba6bd723b8906edb2d54300bef2496baf215&amp;source=constructor"
-          className="w-full max-w-[1200px] h-[400px] mx-auto"
-          frameBorder="0"
+          width="100%"
+          height="400"
         ></iframe>
       </div>
     </div>
