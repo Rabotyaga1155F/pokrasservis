@@ -15,8 +15,10 @@ export const sendMail = async (message: any) => {
   try {
     const info = await smtpTransport.sendMail(message);
     console.log("email sent", info);
+    return info;
   } catch (err) {
-    console.log("Ошибка", err);
+    console.error("MAIL ERROR:", err);
+    throw err;
   } finally {
     smtpTransport.close();
   }

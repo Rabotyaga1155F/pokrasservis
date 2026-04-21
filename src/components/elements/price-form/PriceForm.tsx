@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import { sendMessageToEmail } from "@/utils/send-message/serverActions";
 
 type FormValues = {
   works: string;
@@ -34,13 +33,26 @@ export default function PriceForm() {
 
   const onSubmit = async (data: FormValues) => {
     setIsLoading(true);
+
     try {
-      await sendMessageToEmail({
-        name: data.name,
-        phone: data.phone || "",
-        email: data.email || "",
-        works: data.works,
+      const res = await fetch("/api/send-message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: data.name,
+          phone: data.phone || "",
+          email: data.email || "",
+          works: data.works,
+        }),
       });
+
+      const result = await res.json();
+
+      if (!res.ok || !result.ok) {
+        throw new Error(result?.error || "Не удалось отправить сообщение");
+      }
 
       setSuccessMessage(true);
       setShowSubmittedText(true);
@@ -52,11 +64,11 @@ export default function PriceForm() {
       }, 5000);
     } catch (error) {
       console.log(error);
+      alert("Ошибка при отправке формы");
     } finally {
       setIsLoading(false);
     }
   };
-
   return (
     <div className="bg-gray-100 py-16 px-4">
       <div className="w-full max-w-[800px] mx-auto text-center">
