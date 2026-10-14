@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useState } from "react";
 
+const maxProfileUrl = "https://web.max.ru/391296496";
+
 export default function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,9 +23,23 @@ export default function Header() {
             height={80}
             src={"/poliymer_logo.webp"}
             alt={"logo"}
+            className="w-24 shrink-0 sm:w-[150px]"
           />
 
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-3">
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href={maxProfileUrl}
+              aria-label="Написать в MAX"
+            >
+              <Image
+                width={30}
+                height={30}
+                src="/max-icon.png"
+                alt="MAX"
+              />
+            </Link>
             <Link target="_blank" href="https://t.me/Ps_polimer">
               <Image
                 width={35}
@@ -81,6 +97,19 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-5">
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href={maxProfileUrl}
+              aria-label="Написать в MAX"
+            >
+              <Image
+                width={45}
+                height={45}
+                src="/max-icon.png"
+                alt="MAX"
+              />
+            </Link>
             <Link target="_blank" href="https://t.me/Ps_polimer">
               <Image
                 width={50}
