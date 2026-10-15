@@ -6,7 +6,8 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useState } from "react";
 
-const maxProfileUrl = "https://web.max.ru/391296496";
+const maxProfileUrl =
+  "https://max.ru/u/f9LHodD0cOJ1hCU26CErpG2As0yAfZOa-jT6JYDSC5WcHPn1XOuxxhSc1Co";
 
 export default function Header() {
   const pathname = usePathname();
@@ -33,12 +34,7 @@ export default function Header() {
               href={maxProfileUrl}
               aria-label="Написать в MAX"
             >
-              <Image
-                width={30}
-                height={30}
-                src="/max-icon.png"
-                alt="MAX"
-              />
+              <Image width={30} height={30} src="/max-icon.png" alt="MAX" />
             </Link>
             <Link target="_blank" href="https://t.me/Ps_polimer">
               <Image
@@ -103,12 +99,7 @@ export default function Header() {
               href={maxProfileUrl}
               aria-label="Написать в MAX"
             >
-              <Image
-                width={45}
-                height={45}
-                src="/max-icon.png"
-                alt="MAX"
-              />
+              <Image width={45} height={45} src="/max-icon.png" alt="MAX" />
             </Link>
             <Link target="_blank" href="https://t.me/Ps_polimer">
               <Image
